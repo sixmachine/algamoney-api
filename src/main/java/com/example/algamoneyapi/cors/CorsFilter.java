@@ -12,8 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
-import org.springframework.http.server.ServletServerHttpRequest;
-import org.springframework.http.server.ServletServerHttpResponse;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -27,8 +25,8 @@ public class CorsFilter implements Filter {
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
 			throws IOException, ServletException {
 
-		HttpServletRequest request = ((ServletServerHttpRequest) req).getServletRequest();
-		HttpServletResponse response = ((ServletServerHttpResponse) resp).getServletResponse();
+		HttpServletRequest request = (HttpServletRequest) req;
+		HttpServletResponse response = (HttpServletResponse) resp;
 
 		response.setHeader("Access-Control-Allow-Origin", origemPermitida);
 		response.setHeader("Access-Control-Allow-Credentials", "true");
