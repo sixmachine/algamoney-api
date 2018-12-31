@@ -23,6 +23,7 @@ INSERT INTO usuario (codigo, nome, email, senha) values (2, 'Maria Silva', 'mari
 
 INSERT INTO permissao (codigo, descricao) values (1, 'ROLE_CADASTRAR_CATEGORIA');
 INSERT INTO permissao (codigo, descricao) values (2, 'ROLE_PESQUISAR_CATEGORIA');
+INSERT INTO permissao (codigo, descricao) values (9, 'ROLE_REMOVER_CATEGORIA');
 
 INSERT INTO permissao (codigo, descricao) values (3, 'ROLE_CADASTRAR_PESSOA');
 INSERT INTO permissao (codigo, descricao) values (4, 'ROLE_REMOVER_PESSOA');
@@ -41,6 +42,7 @@ INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 5);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 6);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 7);
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 8);
+INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (1, 9);
 
 -- maria
 INSERT INTO usuario_permissao (codigo_usuario, codigo_permissao) values (2, 2);
