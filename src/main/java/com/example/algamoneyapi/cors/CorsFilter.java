@@ -10,16 +10,19 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import com.example.algamoneyapi.config.property.AlgamoneyApiProperty;
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
 	
-	
-	private String origemPermitida = "*" ;//TODO - MUDAR
+	@Autowired
+	private AlgamoneyApiProperty algamoneyApiProperty;
 
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
@@ -28,7 +31,7 @@ public class CorsFilter implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) resp;
 
-		response.setHeader("Access-Control-Allow-Origin", origemPermitida);
+		response.setHeader("Access-Control-Allow-Origin", algamoneyApiProperty.getOriginPermitida());
 		response.setHeader("Access-Control-Allow-Credentials", "true");
 
 		if ("OPTIONS".equals(request.getMethod())) {
